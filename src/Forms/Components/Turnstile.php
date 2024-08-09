@@ -15,7 +15,7 @@ class Turnstile extends Field
 
     protected string $size = 'normal';
 
-    protected string $language = 'en-US';
+    protected string $language = 'en-us';
 
     protected function setUp(): void
     {
