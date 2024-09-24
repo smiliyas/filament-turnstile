@@ -10,9 +10,10 @@
 <x-dynamic-component :component="$fieldWrapperView" :field="$turnstile">
 
     <div x-data="{
-            state: $wire.entangle('{{ $statePath }}').defer 
+            state: $wire.entangle('{{ $statePath }}').defer
         }"
         wire:ignore
+        x-load-js="['https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback']"
         x-init="(() => {
             let options= {
                 callback: function (token) {
@@ -41,8 +42,6 @@
             >
         </div>
     </div>
-
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
 
     @push('scripts')
         <script>
